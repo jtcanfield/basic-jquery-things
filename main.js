@@ -1,12 +1,12 @@
 // Sorry if I am not thorough with explaining things, if you have any questions, please ask!
 
-// #1
+// #1: The Fade
 // So here I tell jQuery to find a class by using "$(".classNameHere")"
 // Then, you can add any method you want after it. Here, I add .hide()
 // to ".thehtmlclass" when the script loads, and right after that
 // I make the class ".fadeIn();"" for 2000 milliseconds
 // This is what causes the fade in when you load the page
-// Syntax: $("classOrIdName").method();
+// Syntax: $(selector).method();
 $('.thehtmlclass').hide();
 $(".thehtmlclass").fadeIn(2000);
 // Remember, this only happens when the script is loaded, so if you have a
@@ -14,7 +14,7 @@ $(".thehtmlclass").fadeIn(2000);
 // until the page has loaded.
 
 
-// #2
+// #2: Adding Text
 // Below, i tell jquery to find an id called "#addSomethingButton" and I put
 // the method ".click()" on it. Within that method I call a function.
 $("#addSomethingButton").click(function() {
@@ -26,7 +26,7 @@ $("#addSomethingButton").click(function() {
   addText.innerHTML = "This String will be added to id addText";
 });
 
-// #3
+// #3: Adding Text To Class
 // This is just like above but using Classes instead of ID's
 // Telling jQuery to find a class is no different than telling it to find an ID
 $(".addSomethingToClass").click(function() {
@@ -38,7 +38,7 @@ $(".addSomethingToClass").click(function() {
 });
 
 
-// #4
+// #4 Adding To All Classes
 // The limitation with above is that you can only target one class item...
 // What if you want to change all text in a class?
 $(".addToAllClasses").click(function() {
@@ -48,7 +48,7 @@ $(".addToAllClasses").click(function() {
 });
 
 
-// #5
+// #5 Add Input Text
 // What if you want to get text that the user typed in?
 $("#submitUserText").click(function() {
   // So first, we are going to use document.getElementById("idName").value
@@ -58,3 +58,25 @@ $("#submitUserText").click(function() {
   // Then, we just use the let that we assigned above to .innerHTML an ID
   userTextOutput.innerHTML= submittedText;
 });
+
+
+// #6 Toggle Add/Remove Class
+$("#addClassToThing").click(function() {
+// So lets add or remove a class! The class has to already be written in CSS.
+// So lets use an If/Else statement to check to see if something has a class.
+// First, lets check to see if something has a class.
+// in the condition of the if statement, use this selector
+// $(selector).hasClass("classNameHere")
+  if ($("div:nth-of-type(5) p").hasClass("addRedColor")){
+    // So this statement says if the <p> in the 5th div has addRedColor,
+    //  then removeClass addRed color on .click
+    $("div:nth-of-type(5) p").removeClass("addRedColor")
+  } else {
+    // If the selected object does not have a class, then this will add the class to it:
+    $("div:nth-of-type(5) p").addClass("addRedColor");
+  }
+});
+//There is an easier way to do this, using method ".toggleClass()". You wouldnt have to write an if/else statement.
+// $("#addClassToThing").click(function() {
+//   $("div:nth-of-type(5) p").toggleClass("addRedColor")
+// });
