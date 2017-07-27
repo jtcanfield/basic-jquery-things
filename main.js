@@ -48,7 +48,13 @@ $(".addToAllClasses").click(function() {
 });
 
 
-
-
-let submittedText = document.getElementById("textinput").value;
-youpicked.innerHTML= "Rock";
+// #5
+// What if you want to get text that the user typed in?
+$("#submitUserText").click(function() {
+  // So first, we are going to use document.getElementById("idName").value
+  // This Tells jQuery to search the document for things that have an specific id name and
+  // retreive their value (which in this case is text or nmbers) and assign it to a let variable
+  let submittedText = document.getElementById("textinput").value;
+  // Then, we just use the let that we assigned above to .innerHTML an ID
+  userTextOutput.innerHTML= submittedText;
+});
