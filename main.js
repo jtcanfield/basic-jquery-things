@@ -53,7 +53,7 @@ $(".addToAllClasses").click(function() {
 $("#submitUserText").click(function() {
   // So first, we are going to use document.getElementById("idName").value
   // This Tells js to search the document for things that have an specific id name and
-  // retreive their value (which in this case is text or nmbers) and assign it to a let variable
+  // retreive their value (as a string) and assign it to a let variable
   let submittedText = document.getElementById("textinput").value;
   // Then, we just use the let that we assigned above to .innerHTML an ID
   userTextOutput.innerHTML= submittedText;
@@ -82,21 +82,25 @@ $("#addClassToThing").click(function() {
 // });
 
 
-// #7 Activate Function
-// We are going to make a calculator that multiplys two numbers!
-// So first we should make the function and give it two arguements
+// #7 Multiplication
+// We are going to make a calculator that multiplys two numbers! So first we should
+// make the function and give it two arguments, and return the multiplication of those arguments
 function activateCalculator(x, y){
   return x * y
 }
 // Okay, now lets make jQuery look for the id button.
 $("#multiplyNumbers").click(function() {
-// In the HTML,i have two input text boxes 
+// In the HTML, I have two input text boxes with ID's number 1 and number2.
+// I am going to tell js to find those and retrieve their values (as a string) and
+// assigns them to a let
   let number1 = document.getElementById("number1").value;
   let number2 = document.getElementById("number2").value;
-
+// Now, I am going to make an IF/Else that checks each string to see if they are
+// numbers and if they are numbers, innerHTML will send text
   if (isNaN(number1) === true || isNaN(number2) === true){
     multiplicationAnswer.innerHTML = "Only Input Valid Numbers!"
   } else {
+// If both are numbers, it will add them to arguments to the function made above, and the function will return the math.
     multiplicationAnswer.innerHTML = activateCalculator(number1, number2);
   }
 });
