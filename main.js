@@ -30,7 +30,7 @@ $("#addSomethingButton").click(function() {
 // This is just like above but using Classes instead of ID's
 // Telling jQuery to find a class is no different than telling it to find an ID
 $(".addSomethingToClass").click(function() {
-  // Now, you need to tell jQuery to find classes in a document.
+  // Now, you need to tell js to find classes in a document.
   // this is done by using: "document.getElementsByClassName('classNameHere')[index#]"
   // notice that this time there is a spot for index numbers. since you can have more
   // than one thing with a class, it has to target which one you want.
@@ -52,7 +52,7 @@ $(".addToAllClasses").click(function() {
 // What if you want to get text that the user typed in?
 $("#submitUserText").click(function() {
   // So first, we are going to use document.getElementById("idName").value
-  // This Tells jQuery to search the document for things that have an specific id name and
+  // This Tells js to search the document for things that have an specific id name and
   // retreive their value (which in this case is text or nmbers) and assign it to a let variable
   let submittedText = document.getElementById("textinput").value;
   // Then, we just use the let that we assigned above to .innerHTML an ID
@@ -80,3 +80,23 @@ $("#addClassToThing").click(function() {
 // $("#addClassToThing").click(function() {
 //   $("div:nth-of-type(5) p").toggleClass("addRedColor")
 // });
+
+
+// #7 Activate Function
+// We are going to make a calculator that multiplys two numbers!
+// So first we should make the function and give it two arguements
+function activateCalculator(x, y){
+  return x * y
+}
+// Okay, now lets make jQuery look for the id button.
+$("#multiplyNumbers").click(function() {
+// In the HTML,i have two input text boxes 
+  let number1 = document.getElementById("number1").value;
+  let number2 = document.getElementById("number2").value;
+
+  if (isNaN(number1) === true || isNaN(number2) === true){
+    multiplicationAnswer.innerHTML = "Only Input Valid Numbers!"
+  } else {
+    multiplicationAnswer.innerHTML = activateCalculator(number1, number2);
+  }
+});
